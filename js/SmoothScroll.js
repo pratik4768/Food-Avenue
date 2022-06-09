@@ -1,13 +1,7 @@
 // SmoothScroll for websites v1.2.1
-// Licensed under the terms of the MIT license.
-
-// People involved
-//  - Balazs Galambosi (maintainer)  
-//  - Michael Herf     (Pulse Algorithm)
-
 (function(){
   
-// Scroll Variables (tweakable)
+// Scroll Variables 
 var defaultOptions = {
 
     // Scrolling Core
@@ -52,20 +46,12 @@ var key = { left: 37, up: 38, right: 39, down: 40, spacebar: 32,
             pageup: 33, pagedown: 34, end: 35, home: 36 };
 
 
-/***********************************************
- * SETTINGS
- ***********************************************/
+/*SETTINGS*/
 
 var options = defaultOptions;
 
 
-/***********************************************
- * INITIALIZE
- ***********************************************/
-
-/**
- * Tests if smooth scrolling is allowed. Shuts down everything if not.
- */
+/*INITIALIZE*/
 function initTest() {
 
     var disableKeyboard = false; 
@@ -80,8 +66,7 @@ function initTest() {
     }
 }
 
-/**
- * Sets up scrolls array, determines if frames are involved.
+/* Sets up scrolls array, determines if frames are involved.
  */
 function init() {
   
@@ -132,17 +117,13 @@ function init() {
 }
 
 
-/************************************************
- * SCROLLING 
- ************************************************/
+/*SCROLLING*/
  
 var que = [];
 var pending = false;
 var lastScroll = +new Date;
 
-/**
- * Pushes scroll actions to the scrolling queue.
- */
+/*Pushes scroll actions to the scrolling queue.*/
 function scrollArray(elem, left, top, delay) {
     
     delay || (delay = 1000);
@@ -473,17 +454,6 @@ var requestFrame = (function () {
               };
 })();
 
-
-/***********************************************
- * PULSE
- ***********************************************/
- 
-/**
- * Viscous fluid with a pulse for part and decay for the rest.
- * - Applies a fixed force over an interval (a damped acceleration), and
- * - Lets the exponential bleed away the velocity over a longer interval
- * - Michael Herf, http://stereopsis.com/stopping/
- */
 function pulse_(x) {
     var val, start, expx;
     // test
